@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import "./App.css";
+import "./style.css";
+
+import HomePage from "./interactivecode";
+
+import { AnimatePresence } from "framer-motion"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+  useEffect(() => {
+    window.scrollTo(0, 1); // Scroll to position (0,1) to hide the bookmarks bar
+  }, []);
+
+    return (
+        
+      <div className="App">
+        <AnimatePresence>
+                <HomePage>
+                </HomePage>
+        </AnimatePresence>
+    </div> 
+    );
+  }
 
 export default App;
